@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <h1>Jenkins - 1</h1>
+        <h1>Jenkins - 2</h1>
         {children}
       </body>
     </html>
