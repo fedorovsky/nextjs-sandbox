@@ -1,15 +1,13 @@
 pipeline {
   agent any
 
-  options {
-    timestamps()
-  }
+  options { timestamps() }
 
   environment {
     IMAGE_NAME     = 'image-nextjs-sandbox'
     CONTAINER_NAME = 'image-nextjs-sandbox'
-    APP_PORT       = '1004' // внешний порт хоста
-    CONTAINER_PORT = '3000' // порт внутри контейнера (EXPOSE 3000)
+    APP_PORT       = '1004'   // внешний порт хоста
+    CONTAINER_PORT = '3000'   // порт внутри контейнера (EXPOSE 3000)
   }
 
   stages {
@@ -20,12 +18,8 @@ pipeline {
     stage('Docker Build') {
       steps {
         sh '''
-          docker version
-          docker build \
-            --pull \
-            -t ${IMAGE_NAME}:latest \
-            -t ${IMAGE_NAME}:${BUILD_NUMBER} \
-            .
+          echo "Собираем образ ${IMAGE_NAME}..."
+          docker build --pull -t ${IMAGE_NAME} .
         '''
       }
     }
@@ -34,6 +28,7 @@ pipeline {
       steps {
         sh '''
           if [ "$(docker ps -aq -f name=^${CONTAINER_NAME}$)" ]; then
+            echo "Удаляем предыдущий контейнер ${CONTAINER_NAME}..."
             docker rm -f ${CONTAINER_NAME} || true
           fi
         '''
@@ -43,11 +38,12 @@ pipeline {
     stage('Run Container') {
       steps {
         sh '''
+          echo "Запускаем контейнер ${CONTAINER_NAME}..."
           docker run -d \
             --name ${CONTAINER_NAME} \
             -p ${APP_PORT}:${CONTAINER_PORT} \
             -e NODE_ENV=production \
-            ${IMAGE_NAME}:latest
+            ${IMAGE_NAME}
 
           docker ps --filter "name=${CONTAINER_NAME}"
         '''
