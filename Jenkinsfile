@@ -20,7 +20,6 @@ pipeline {
     stage('Docker Build') {
       steps {
         sh '''
-          set -eux
           docker version
           docker build \
             --pull \
@@ -34,7 +33,6 @@ pipeline {
     stage('Stop & Remove Previous Container') {
       steps {
         sh '''
-          set -eux
           if [ "$(docker ps -aq -f name=^${CONTAINER_NAME}$)" ]; then
             docker rm -f ${CONTAINER_NAME} || true
           fi
@@ -45,7 +43,6 @@ pipeline {
     stage('Run Container') {
       steps {
         sh '''
-          set -eux
           docker run -d \
             --name ${CONTAINER_NAME} \
             -p ${APP_PORT}:${CONTAINER_PORT} \
