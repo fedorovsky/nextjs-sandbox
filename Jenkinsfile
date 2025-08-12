@@ -18,7 +18,6 @@ pipeline {
     stage('Docker Build') {
       steps {
         sh '''
-          echo "Собираем образ ${IMAGE_NAME}..."
           docker build --pull -t ${IMAGE_NAME} .
         '''
       }
@@ -28,7 +27,6 @@ pipeline {
       steps {
         sh '''
           if [ "$(docker ps -aq -f name=^${CONTAINER_NAME}$)" ]; then
-            echo "Удаляем предыдущий контейнер ${CONTAINER_NAME}..."
             docker rm -f ${CONTAINER_NAME} || true
           fi
         '''
@@ -44,8 +42,6 @@ pipeline {
             -p ${APP_PORT}:${CONTAINER_PORT} \
             -e NODE_ENV=production \
             ${IMAGE_NAME}
-
-          docker ps --filter "name=${CONTAINER_NAME}"
         '''
       }
     }
@@ -53,7 +49,7 @@ pipeline {
 
   post {
     success {
-      echo "Приложение поднято: http://<JENKINS_AGENT_HOST>:${APP_PORT}"
+      echo "Приложение поднято: http://localhost:${APP_PORT}"
     }
     failure {
       sh 'docker logs ${CONTAINER_NAME} || true'
