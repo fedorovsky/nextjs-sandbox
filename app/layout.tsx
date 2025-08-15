@@ -26,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <h1>Jenkins - 4</h1>
+        <h2>Build: {process.env.NEXT_PUBLIC_COMMIT_SHA}</h2>
         {children}
       </body>
     </html>

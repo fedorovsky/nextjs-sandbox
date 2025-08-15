@@ -3,7 +3,9 @@
 ## 1. Build the Docker Image
 
 ```bash
-docker build -t image-nextjs-sandbox .
+docker build \
+  --build-arg COMMIT_SHA=$(git rev-parse --short=12 HEAD) \
+  -t image-nextjs-sandbox .
 ```
 
 * `-t image-nextjs-sandbox` — sets the image name

@@ -3,6 +3,10 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Принимаем хеш
+ARG COMMIT_SHA=dev
+ENV NEXT_PUBLIC_COMMIT_SHA=$COMMIT_SHA
+
 # (опционально) для sharp/libvips на Alpine
 RUN apk add --no-cache libc6-compat
 
