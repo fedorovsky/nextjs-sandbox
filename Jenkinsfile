@@ -5,9 +5,9 @@ pipeline {
 
   environment {
     IMAGE_NAME     = 'image-nextjs-sandbox'
-    CONTAINER_NAME = 'image-nextjs-sandbox'
-    APP_PORT       = '1004'   // внешний порт хоста
-    CONTAINER_PORT = '3000'   // порт внутри контейнера (EXPOSE 3000)
+    CONTAINER_NAME = 'container-nextjs-sandbox'
+    APP_PORT       = '1004'
+    CONTAINER_PORT = '3000'
   }
 
   stages {
@@ -18,7 +18,9 @@ pipeline {
     stage('Docker Build') {
       steps {
         sh '''
-          docker build --pull -t ${IMAGE_NAME} .
+          docker build --pull \
+          --build-arg COMMIT_SHA=${GIT_COMMIT} \
+          -t ${IMAGE_NAME} .
         '''
       }
     }
@@ -36,7 +38,6 @@ pipeline {
     stage('Run Container') {
       steps {
         sh '''
-          echo "Запускаем контейнер ${CONTAINER_NAME}..."
           docker run -d \
             --name ${CONTAINER_NAME} \
             -p ${APP_PORT}:${CONTAINER_PORT} \

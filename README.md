@@ -4,7 +4,7 @@
 
 ```bash
 docker build \
-  --build-arg COMMIT_SHA=$(git rev-parse --short=12 HEAD) \
+  --build-arg COMMIT_SHA=$(git rev-parse --short=8 HEAD) \
   -t image-nextjs-sandbox .
 ```
 
