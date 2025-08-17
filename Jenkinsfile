@@ -50,7 +50,7 @@ pipeline {
 
   post {
     success {
-      echo "Приложение поднято: http://localhost:${APP_PORT}"
+      echo "The app is running: http://localhost:${APP_PORT}"
     }
     failure {
       sh 'docker logs ${CONTAINER_NAME} || true'
