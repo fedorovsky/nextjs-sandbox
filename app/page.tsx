@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -7,6 +7,9 @@ export default function Home() {
       <ul>
         <li>
           <Link href="/isr">Go to ISR page</Link>
+        </li>
+        <li>
+          <Link href="/server-actions">Go to server-actions page</Link>
         </li>
       </ul>
     </div>

@@ -17,7 +17,7 @@ export default async function ISR() {
    * The `next: { revalidate: 10 }` option tells Next.js to
    * revalidate this page every 10 seconds.
    */
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5", {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5', {
     next: { revalidate: 10 },
   });
 
