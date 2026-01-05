@@ -1,14 +1,11 @@
+import type { Post } from '@/app/isr/types';
+
 /**
  * This is an example of a page that uses Incremental Static Regeneration (ISR).
  * It will be regenerated every 10 seconds.
  * The page will display the last generated time.
  */
 export const revalidate = 10;
-
-type Post = {
-  id: number;
-  title: string;
-};
 
 export default async function ISR() {
   const now = new Date().toISOString();
@@ -26,7 +23,7 @@ export default async function ISR() {
   return (
     <div>
       <h2>ISR Page</h2>
-      <p>Last generated at: {now}</p>
+      <h3>Last generated at: {now}</h3>
       <ul>
         {posts.map((p) => (
           <li key={p.id}>{p.title}</li>
