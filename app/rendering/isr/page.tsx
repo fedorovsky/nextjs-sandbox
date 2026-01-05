@@ -1,4 +1,4 @@
-import type { Post } from '@/app/isr/types';
+import type { Post } from './types';
 
 /**
  * Regenerate the page HTML after 10 seconds
@@ -38,3 +38,15 @@ export default async function ISR() {
     </div>
   );
 }
+
+/**
+ * This page is treated as ISR because:
+ * - it does NOT use cookies(), headers(), or cache: 'no-store'
+ * - it defines `export const revalidate`
+ * - all fetch requests use cache with revalidation
+ *
+ * Result:
+ * - HTML is generated statically
+ * - HTML is regenerated in the background
+ *   on the next request after the revalidate period
+ */
