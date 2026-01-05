@@ -1,6 +1,18 @@
-# Running Next.js 15.4.6 in Docker (Production)
+## Local production check
 
-## 1. Build the Docker Image
+```bash
+npm run build
+npm run start
+```
+
+- runs Next.js in **production mode**
+- matches real production behavior
+- required to test ISR, caching, and rendering
+- **no hot reload** (rebuild required after changes)
+
+## Docker
+
+### 1. Build the Docker Image
 
 ```bash
 docker build \
@@ -11,7 +23,7 @@ docker build \
 - `-t image-nextjs-sandbox` — sets the image name
 - `.` — points to the current directory containing the `Dockerfile`
 
-## 2. Run the Container
+### 2. Run the Container
 
 ```bash
 docker run --rm -d -p 3000:3000 --name container-nextjs-sandbox image-nextjs-sandbox
@@ -23,7 +35,7 @@ docker run --rm -d -p 3000:3000 --name container-nextjs-sandbox image-nextjs-san
 - `--name container-nextjs-sandbox` — container name
 - `image-nextjs-sandbox` — image name
 
-## 3. Check the Application
+### 3. Check the Application
 
 Open in your browser:
 
@@ -31,13 +43,13 @@ Open in your browser:
 http://localhost:3000
 ```
 
-## 4. Stop the Container
+### 4. Stop the Container
 
 ```bash
 docker stop next-container
 ```
 
-## 5. Remove the Container
+### 5. Remove the Container
 
 ```bash
 docker rm next-container
