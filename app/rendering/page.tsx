@@ -15,6 +15,9 @@ export default function Rendering() {
       <li>
         <Link href="/rendering/hybrid">Hybrid Rendering (ISR + SSR)</Link>
       </li>
+      <li>
+        <Link href="/rendering/streaming">Streaming (Suspense)</Link>
+      </li>
     </ul>
   );
 }
