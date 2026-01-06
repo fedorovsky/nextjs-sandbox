@@ -9,6 +9,9 @@ export default function Home() {
           <Link href="/rendering">Rendering</Link>
         </li>
         <li>
+          <Link href="/routing">Routing</Link>
+        </li>
+        <li>
           <Link href="/server-actions">Server Actions</Link>
         </li>
       </ul>
