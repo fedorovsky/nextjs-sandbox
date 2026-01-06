@@ -12,6 +12,9 @@ export default function Rendering() {
       <li>
         <Link href="/rendering/ssr">SSR (Server-Side Rendering)</Link>
       </li>
+      <li>
+        <Link href="/rendering/hybrid">Hybrid Rendering (ISR + SSR)</Link>
+      </li>
     </ul>
   );
 }
