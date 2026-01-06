@@ -27,7 +27,7 @@ export default async function ISR() {
   const posts: Post[] = await res.json();
 
   return (
-    <div>
+    <>
       <h2>ISR Page</h2>
       <h3>Last generated at: {now}</h3>
       <ul>
@@ -35,7 +35,7 @@ export default async function ISR() {
           <li key={p.id}>{p.title}</li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 

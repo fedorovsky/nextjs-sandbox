@@ -9,7 +9,7 @@ export default function Home() {
           <Link href="/rendering">Rendering</Link>
         </li>
         <li>
-          <Link href="/server-actions">Go to server-actions page</Link>
+          <Link href="/server-actions">Server Actions</Link>
         </li>
       </ul>
     </div>
