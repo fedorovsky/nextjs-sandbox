@@ -16,6 +16,8 @@
 | Route handler      | `route.ts`             | ✅             | `/api/posts`      | API endpoint            |
 | Middleware         | `middleware.ts`        | ⚠️             | global            | Pre-request logic       |
 
+[routes-and-layouts](https://github.com/Hendrixer/next.js-fundamentals/blob/main/lessons/04-routes-and-layouts.md)
+
 ## Page route (`page.tsx`)
 A regular page.
 Renders HTML and creates a URL based on folder structure.
