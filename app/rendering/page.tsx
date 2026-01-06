@@ -9,6 +9,9 @@ export default function Rendering() {
       <li>
         <Link href="/rendering/ssg">SSG (Static Site Generation)</Link>
       </li>
+      <li>
+        <Link href="/rendering/ssr">SSR (Server-Side Rendering)</Link>
+      </li>
     </ul>
   );
 }
