@@ -13,7 +13,16 @@ export default function RoutesPage() {
           <Link href="/routing/static">Static</Link>
         </li>
         <li>
-          <Link href="/routing/dynamic">Dynamic</Link>
+          <Link href="/routing/dynamic/hello">Dynamic</Link>
+        </li>
+        <li>
+          <Link href="/routing/catch-all/a/b/c">Catch-all</Link>
+        </li>
+        <li>
+          <Link href="/routing/optional-catch-all/a/b/c">Optional Catch-all</Link>
+        </li>
+        <li>
+          <Link href="/routing/api/posts">Route handler</Link>
         </li>
       </ul>
     </>
