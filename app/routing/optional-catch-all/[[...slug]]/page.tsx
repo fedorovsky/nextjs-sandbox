@@ -1,17 +1,24 @@
 /**
- * Optional catch-all route example.
+ * Optional catch-all route for `/routing/optional-catch-all/...segments`.
  *
- * Matches ZERO or MORE URL segments.
+ * Handles zero or more URL segments after `/routing/optional-catch-all`.
  *
- * URL examples:
- * - /routing/optional
- * - /routing/optional/a
- * - /routing/optional/a/b
+ * Examples:
+ * - `/routing/optional-catch-all`
+ * - `/routing/optional-catch-all/a`
+ * - `/routing/optional-catch-all/a/b/c`
  */
 export default async function Page({ params }: { params: Promise<{ slug?: string[] }> }) {
   /**
-   * In Next.js 16 `params` is async.
-   * It must be awaited before use.
+   * Parameters resolved for `/routing/optional-catch-all/...segments`.
+   *
+   * - `slug` is `undefined` when no segments are provided
+   *   (`/routing/optional-catch-all`)
+   * - `slug` is `string[]` when one or more segments exist
+   *   (`/routing/optional-catch-all/...segments`)
+   *
+   *   For `/routing/optional-catch-all/a/b/c`,
+   *   slug` equals `['a', 'b', 'c']`
    */
   const { slug } = await params;
 
