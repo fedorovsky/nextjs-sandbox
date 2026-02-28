@@ -54,3 +54,63 @@ docker stop next-container
 ```bash
 docker rm next-container
 ```
+
+
+## Linaria + Next.js 16 Setup
+
+### 1️⃣ Dependencies
+
+```bash
+npm i @linaria/core @linaria/react
+npm i -D @wyw-in-js/webpack-loader @wyw-in-js/babel-preset
+```
+
+---
+
+### 2️⃣ Webpack loader (next.config.ts)
+
+```ts
+webpack(config, { dev }) {
+  config.module.rules.push({
+    test: /\.(ts|tsx|js|jsx)$/,
+    exclude: /node_modules/,
+    use: [
+      {
+        loader: '@wyw-in-js/webpack-loader',
+        options: {
+          sourceMap: dev,
+          displayName: dev,
+          babelOptions: {
+            presets: ['@wyw-in-js/babel-preset']
+          }
+        }
+      }
+    ]
+  })
+
+  return config
+}
+```
+
+---
+
+### 3️⃣ Babel preset (.babelrc)
+
+```json
+{
+  "presets": [
+    "next/babel",
+    "@wyw-in-js/babel-preset"
+  ]
+}
+```
+
+---
+
+## 🎯 Result
+
+* CSS is extracted at build time
+* Zero runtime
+* Works with Next.js 16
+* Compatible with App Router
+

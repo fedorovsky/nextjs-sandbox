@@ -12,6 +12,7 @@ RUN apk add --no-cache libc6-compat
 
 # Устанавливаем зависимости (dev + prod нужны для сборки)
 COPY package*.json ./
+COPY .npmrc ./
 RUN npm ci
 
 # Копируем исходники и билдим

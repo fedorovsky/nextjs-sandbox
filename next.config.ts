@@ -1,11 +1,29 @@
-// next.config.ts
-import withLinaria, { LinariaConfig } from 'next-with-linaria';
+import type { NextConfig } from 'next';
 
-const config: LinariaConfig = {
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
   output: 'standalone',
-  linaria: {
-    // Linaria options
+
+  webpack(config, { dev }) {
+    config.module.rules.push({
+      test: /\.(ts|tsx|js|jsx)$/,
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: '@wyw-in-js/webpack-loader',
+          options: {
+            sourceMap: dev,
+            displayName: dev,
+            babelOptions: {
+              presets: ['@wyw-in-js/babel-preset'],
+            },
+          },
+        },
+      ],
+    });
+
+    return config;
   },
 };
 
-export default withLinaria(config);
+export default nextConfig;
