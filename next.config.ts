@@ -1,7 +1,11 @@
-import type { NextConfig } from 'next';
+// next.config.ts
+import withLinaria, { LinariaConfig } from 'next-with-linaria';
 
-const nextConfig: NextConfig = {
+const config: LinariaConfig = {
   output: 'standalone',
+  linaria: {
+    // Linaria options
+  },
 };
 
-export default nextConfig;
+export default withLinaria(config);
