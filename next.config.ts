@@ -14,9 +14,6 @@ const nextConfig: NextConfig = {
           options: {
             sourceMap: dev,
             displayName: dev,
-            babelOptions: {
-              presets: ['@wyw-in-js/babel-preset'],
-            },
           },
         },
       ],

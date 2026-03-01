@@ -15,7 +15,8 @@
     "@plarium/d2c-ui-kit": "^0.0.29",
     "next": "16.1.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "styled-components": "^6.3.11"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^19",
     "@wyw-in-js/babel-preset": "^1.0.6",
     "@wyw-in-js/webpack-loader": "^1.0.6",
+    "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "prettier": "^3.7.4",
