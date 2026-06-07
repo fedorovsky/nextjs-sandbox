@@ -1,5 +1,7 @@
-import * as Styled from './user-card-linaria.styled';
+'use client';
+
 import { Button } from '@plarium/d2c-ui-kit';
+import * as Styled from './user-card-linaria.styled';
 
 export const UserCardLinaria = () => {
   return (

@@ -5,4 +5,5 @@ export const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
   color: ${theme.system['200']};
+  border: 20px solid red;
 `;
